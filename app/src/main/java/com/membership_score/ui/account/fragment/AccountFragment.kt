@@ -54,6 +54,7 @@ class AccountFragment : BaseFragment<AccountFragmentPresenter>(), AccountFragmen
                         startActivity(intent)
                         activity?.finish()
                     }
+
                 }).show()
         }
     }
