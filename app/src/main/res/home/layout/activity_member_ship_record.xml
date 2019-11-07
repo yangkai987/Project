@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/rl_layout_view"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+    <com.membership_score.widgetlib.widget.TitleBar
+            android:id="@+id/tb_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:title_show_backicon="true"
+            app:title_text="会员积分记录" />
+    <View
+            android:layout_below="@+id/tb_title"
+            android:id="@+id/view_1"
+            style="@style/line_h_1"/>
+    <com.scwang.smartrefresh.layout.SmartRefreshLayout
+            android:id="@+id/refreshLayout_ship_record"
+            android:layout_below="@+id/view_1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+        <com.membership_score.widgetlib.widget.LoadingView
+                android:id="@+id/loadingView_ship_record"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:loading_empty_center_msg="暂未产生积分">
+            <android.support.v7.widget.RecyclerView
+                    android:id="@+id/recyclerview_ship_record"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:overScrollMode="never"
+                    android:scrollbars="none" />
+        </com.membership_score.widgetlib.widget.LoadingView>
+    </com.scwang.smartrefresh.layout.SmartRefreshLayout>
+</RelativeLayout>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

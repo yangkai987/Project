@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<set xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!--//移动
+    动画时间
+    开始位置，p为parent，相对于父类，100%p也就是在最底部
+    结束位置，0也就是在最上边
+    -->
+    <translate
+        android:duration="300"
+    android:fromYDelta="100%p"
+    android:toYDelta="0" />
+    <!--透明度由透明到不透明-->
+    <alpha
+        android:duration="300"
+        android:fromAlpha="0.0"
+    android:toAlpha="1.0" />
+</set>

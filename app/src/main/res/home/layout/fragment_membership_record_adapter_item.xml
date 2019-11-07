@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:orientation="vertical">
+    <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dip100">
+        <TextView
+                android:text="2019-10-11 14:30"
+                android:id="@+id/tv_member_time"
+                android:paddingLeft="@dimen/dp_10"
+                android:layout_weight="1.0"
+                android:gravity="center"
+                android:textColor="@color/main_activity_tab_tv_selected"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+        <TextView
+                android:text="50"
+                android:id="@+id/tv_recharge_money"
+                android:layout_weight="1.0"
+                android:maxEms="11"
+                android:maxLines="1"
+                android:paddingLeft="@dimen/dp_10"
+                android:gravity="center"
+                android:inputType="textPhonetic"
+                android:textColor="@color/main_activity_tab_tv_selected"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+        <TextView
+                android:text="50"
+                android:id="@+id/tv_recharge_money_get_ship_num"
+                android:gravity="center"
+                android:layout_weight="1.0"
+                android:paddingLeft="@dimen/dp_10"
+                android:textColor="@color/main_activity_tab_tv_selected"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+        <TextView
+                android:text="支付宝"
+                android:id="@+id/tv_recharge_money_pay_type"
+                android:gravity="center"
+                android:layout_weight="1.0"
+                android:paddingLeft="@dimen/dp_10"
+                android:textColor="@color/main_activity_tab_tv_selected"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+    </LinearLayout>
+    <View  style="@style/line_h_1"/>
+</LinearLayout>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

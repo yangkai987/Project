@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+    <com.membership_score.widgetlib.widget.TitleBar
+            android:id="@+id/tl_layout_forget"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:title_show_backicon="true"
+            app:title_text="忘记密码" />
+    <View
+            android:id="@+id/view_forget"
+            android:layout_below="@+id/tl_layout_forget"
+            style="@style/line_h_1"
+    />
+    <LinearLayout
+            android:id="@+id/ll_forget_input_phone"
+            android:visibility="visible"
+            android:layout_below="@+id/view_forget"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        <RelativeLayout
+                android:visibility="visible"
+                android:id="@+id/rl_forget_input_phone"
+                android:layout_below="@+id/view_forget"
+                android:paddingLeft="@dimen/dip50"
+                android:paddingRight="@dimen/dip50"
+                android:gravity="center_vertical"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dip100">
+            <TextView
+                    android:id="@+id/tv_1_forget"
+                    android:text="手机号码"
+                    android:layout_centerVertical="true"
+                    android:textSize="@dimen/sp_16"
+                    android:textColor="@color/color_E84D61"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+            <com.membership_score.widgetlib.widget.ClearEditText
+                    android:id="@+id/et_member_old_forget_phone_input"
+                    android:background="@null"
+                    android:layout_alignParentRight="true"
+                    android:textSize="@dimen/sp_16"
+                    android:maxLength="11"
+                    android:gravity="center|right"
+                    android:inputType="phone"
+                    android:layout_marginLeft="@dimen/dip15"
+                    android:layout_toRightOf="@+id/tv_1_forget"
+                    android:textColor="@color/colorMain"
+                    android:textColorHint="@color/color_CCCCCC"
+                    android:hint="请输入注册的手机号码"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+        </RelativeLayout>
+        <View   style="@style/line_h_1"
+                android:layout_below="@+id/rl_forget_input_phone"/>
+    </LinearLayout>
+    <TextView
+            android:id="@+id/tv_find_member_forget_pw_sure"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dip100"
+            android:layout_centerVertical="true"
+            android:layout_margin="@dimen/dip150"
+            android:text="找回密码"
+            android:gravity="center"
+            android:textSize="@dimen/sp_16"
+            android:background="@drawable/btn_login_bg_selector"
+            android:textColor="@color/color_FFFFFF"
+    />
+</RelativeLayout>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+    <com.membership_score.widgetlib.widget.TitleBar
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/tl_layout"
+            app:title_show_backicon="false"
+            app:title_text="我的" />
+    <View
+            android:id="@+id/view_1"
+            android:layout_below="@+id/tl_layout"
+            style="@style/line_h_1"/>
+
+    <LinearLayout
+            android:layout_below="@+id/view_1"
+            android:layout_marginTop="@dimen/dip100"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        <com.membership_score.widgetlib.widget.CircleImageView
+                android:id="@+id/cv_user_icon"
+                android:background="@mipmap/ic_launcher"
+                android:layout_gravity="center"
+                android:layout_width="@dimen/dip100"
+                android:layout_height="@dimen/dip100"/>
+
+        <TextView
+                android:id="@+id/tv_user_name"
+                android:textSize="@dimen/sp_16"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/dip20"
+                android:textColor="@color/color_4C545B"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+        <TextView
+                android:id="@+id/tv_user_phone"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:layout_marginTop="@dimen/dip20"
+                android:textSize="@dimen/sp_16"
+                android:textColor="@color/color_4C545B"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+        <View   android:layout_marginTop="@dimen/dip100"
+                style="@style/line_h_1"/>
+        <TextView
+                android:id="@+id/tv_add_member"
+                android:layout_width="match_parent"
+                android:text="添加会员"
+                android:gravity="center|left"
+                android:paddingLeft="@dimen/dip50"
+                android:textSize="@dimen/sp_16"
+                android:textColor="@color/color_4C545B"
+                android:layout_height="@dimen/dip100"/>
+        <View   style="@style/line_h_1"/>
+        <TextView
+                android:id="@+id/tv_modify_member_pw"
+                android:layout_width="match_parent"
+                android:text="修改密码"
+                android:gravity="center|left"
+                android:paddingLeft="@dimen/dip50"
+                android:textSize="@dimen/sp_16"
+                android:textColor="@color/color_4C545B"
+                android:layout_height="@dimen/dip100"/>
+        <View   style="@style/line_h_1"/>
+    </LinearLayout>
+    <TextView
+            android:id="@+id/tv_exit_login"
+            android:layout_width="match_parent"
+            android:text="退出登录"
+            android:layout_alignParentBottom="true"
+            android:gravity="center"
+            android:textSize="@dimen/sp_16"
+            android:layout_margin="@dimen/dip100"
+            android:background="@drawable/btn_login_bg_selector"
+            android:textColor="@color/color_FFFFFF"
+            android:layout_height="@dimen/dip100"/>
+</RelativeLayout>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

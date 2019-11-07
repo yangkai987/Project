@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/rl_view_layout"
+                android:orientation="vertical">
+
+    <com.membership_score.widgetlib.widget.TitleBar
+            android:id="@+id/tl_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:title_show_backicon="true"
+            app:title_text="添加会员" />
+    <View   style="@style/line_h_1"
+            android:layout_below="@+id/tl_layout"
+            android:id="@+id/view_1"/>
+    <LinearLayout
+            android:layout_below="@+id/view_1"
+            android:orientation="vertical"
+            android:id="@+id/ll_layout_1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        <RelativeLayout
+                android:paddingLeft="@dimen/dip50"
+                android:paddingRight="@dimen/dip50"
+                android:gravity="center_vertical"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dip100">
+            <TextView
+                    android:id="@+id/tv_1"
+                    android:text="会员姓名"
+                    android:layout_centerVertical="true"
+                    android:textSize="@dimen/sp_16"
+                    android:textColor="@color/color_4C545B"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+            <com.membership_score.widgetlib.widget.ClearEditText
+                    android:id="@+id/et_add_member_name"
+                    android:background="@null"
+                    android:layout_alignParentRight="true"
+                    android:textSize="@dimen/sp_16"
+                    android:maxLength="11"
+                    android:gravity="center|right"
+                    android:layout_marginLeft="@dimen/dip15"
+                    android:layout_toRightOf="@+id/tv_1"
+                    android:textColor="@color/colorMain"
+                    android:textColorHint="@color/color_CCCCCC"
+                    android:hint="请输入姓名"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+        </RelativeLayout>
+        <View   style="@style/line_h_1"/>
+        <RelativeLayout
+                android:paddingLeft="@dimen/dip50"
+                android:paddingRight="@dimen/dip50"
+                android:gravity="center_vertical"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dip100">
+            <TextView
+                    android:id="@+id/tv_2"
+                    android:text="会员手机号码"
+                    android:layout_centerVertical="true"
+                    android:textSize="@dimen/sp_16"
+                    android:textColor="@color/color_4C545B"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+            <com.membership_score.widgetlib.widget.ClearEditText
+                    android:id="@+id/et_add_member_phone"
+                    android:background="@null"
+                    android:layout_alignParentRight="true"
+                    android:textSize="@dimen/sp_16"
+                    android:maxLength="11"
+                    android:inputType="phone"
+                    android:drawablePadding="@dimen/dip15"
+                    android:gravity="center|right"
+                    android:layout_marginLeft="1dp"
+                    android:layout_toRightOf="@+id/tv_2"
+                    android:textColor="@color/colorMain"
+                    android:textColorHint="@color/color_CCCCCC"
+                    android:hint="请输入手机号码"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"/>
+        </RelativeLayout>
+        <View   style="@style/line_h_1"/>
+        <RelativeLayout
+                android:id="@+id/rl_sex_layout"
+                android:paddingLeft="@dimen/dip50"
+                android:paddingRight="@dimen/dip50"
+                android:gravity="center_vertical"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dip100">
+            <TextView
+                    android:id="@+id/tv_left"
+                    android:text="性别"
+                    android:textSize="@dimen/sp_16"
+                    android:layout_centerVertical="true"
+                    android:textColor="@color/color_4C545B"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+            <TextView
+                    android:id="@+id/tv_add_member_sex"
+                    android:layout_toRightOf="@+id/tv_left"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginLeft="@dimen/dip100"
+                    android:text="请选择"
+                    android:gravity="center|right"
+                    android:textSize="@dimen/sp_16"
+                    android:textColor="@color/color_4C545B"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"/>
+        </RelativeLayout>
+        <View   style="@style/line_h_1"/>
+        <RelativeLayout
+                android:paddingLeft="@dimen/dip50"
+                android:paddingRight="@dimen/dip50"
+                android:gravity="center_vertical"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dip100">
+            <TextView
+                    android:id="@+id/tv_3"
+                    android:text="会员详细地址"
+                    android:textSize="@dimen/sp_16"
+                    android:layout_centerVertical="true"
+                    android:textColor="@color/color_4C545B"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+            <com.membership_score.widgetlib.widget.ClearEditText
+                    android:id="@+id/et_add_member_address"
+                    android:background="@null"
+                    android:layout_alignParentRight="true"
+                    android:textSize="@dimen/sp_16"
+                    android:maxLength="11"
+                    android:gravity="center|right"
+                    android:layout_marginLeft="@dimen/dip15"
+                    android:layout_toRightOf="@+id/tv_3"
+                    android:textColor="@color/colorMain"
+                    android:textColorHint="@color/color_CCCCCC"
+                    android:hint="请输入姓名"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+        </RelativeLayout>
+        <View   style="@style/line_h_1"/>
+    </LinearLayout>
+
+    <TextView
+            android:id="@+id/tv_add_one_member"
+            android:layout_alignParentBottom="true"
+            android:layout_width="match_parent"
+            android:text="添加会员"
+            android:gravity="center"
+            android:textSize="@dimen/sp_16"
+            android:paddingLeft="@dimen/dip50"
+            android:background="@color/color_4C545B"
+            android:textColor="@color/color_FFFFFF"
+            android:layout_height="@dimen/dip100"/>
+</RelativeLayout>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

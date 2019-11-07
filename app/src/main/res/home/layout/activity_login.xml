@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/rl_view_layout"
+                android:orientation="vertical">
+
+    <com.membership_score.widgetlib.widget.TitleBar
+            android:id="@+id/tl_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:title_show_backicon="false"
+            app:title_text="登陆" />
+    <View   style="@style/line_h_1"
+            android:layout_below="@+id/tl_layout"
+            android:id="@+id/view_1"/>
+    <LinearLayout
+            android:layout_below="@+id/view_1"
+            android:layout_marginTop="@dimen/dip150"
+            android:orientation="vertical"
+            android:id="@+id/ll_layout_1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        <RelativeLayout
+                android:paddingLeft="@dimen/dip50"
+                android:paddingRight="@dimen/dip50"
+                android:gravity="center_vertical"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dip100">
+            <TextView
+                    android:id="@+id/tv_1"
+                    android:text="会员用户名"
+                    android:layout_centerVertical="true"
+                    android:textSize="@dimen/sp_16"
+                    android:textColor="@color/color_4C545B"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+            <com.membership_score.widgetlib.widget.ClearEditText
+                    android:id="@+id/et_login_member_name"
+                    android:background="@null"
+                    android:layout_alignParentRight="true"
+                    android:textSize="@dimen/sp_16"
+                    android:inputType="text"
+                    android:drawablePadding="@dimen/dip15"
+                    android:gravity="center|right"
+                    android:layout_marginLeft="@dimen/dip15"
+                    android:layout_toRightOf="@+id/tv_1"
+                    android:textColor="@color/colorMain"
+                    android:textColorHint="@color/color_CCCCCC"
+                    android:hint="请输入用户名"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+        </RelativeLayout>
+        <View   style="@style/line_h_1"/>
+        <RelativeLayout
+                android:paddingLeft="@dimen/dip50"
+                android:paddingRight="@dimen/dip50"
+                android:gravity="center_vertical"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dip100">
+            <TextView
+                    android:id="@+id/tv_2"
+                    android:text="会员密码"
+                    android:layout_centerVertical="true"
+                    android:textSize="@dimen/sp_16"
+                    android:textColor="@color/color_4C545B"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+            <com.membership_score.widgetlib.widget.ClearEditText
+                    android:id="@+id/et_login_pw"
+                    android:background="@null"
+                    android:drawablePadding="@dimen/dip15"
+                    android:layout_alignParentRight="true"
+                    android:textSize="@dimen/sp_16"
+                    android:maxLength="11"
+                    android:inputType="text"
+                    android:gravity="center|right"
+                    android:layout_marginLeft="@dimen/dip20"
+                    android:layout_toRightOf="@+id/tv_2"
+                    android:textColor="@color/colorMain"
+                    android:textColorHint="@color/color_CCCCCC"
+                    android:hint="请输入会员密码"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"/>
+        </RelativeLayout>
+        <View
+                android:id="@+id/view_5"
+                style="@style/line_h_1"/>
+        <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dip100">
+            <TextView
+                    android:id="@+id/tv_register"
+                    android:text="注册"
+                    android:layout_weight="1.0"
+                    android:textSize="@dimen/sp_16"
+                    android:textColor="@color/colorMain"
+                    android:gravity="center"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"/>
+            <View
+                    android:id="@+id/view_6"
+                    style="@style/line_v_1"/>
+            <TextView
+                    android:id="@+id/tv_forget_pw"
+                    android:text="忘记密码？"
+                    android:layout_weight="1.0"
+                    android:textSize="@dimen/sp_16"
+                    android:textColor="@color/colorMain"
+                    android:gravity="center"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"/>
+        </LinearLayout>
+        <View
+                style="@style/line_h_1"/>
+    </LinearLayout>
+
+    <TextView
+            android:id="@+id/tv_login"
+            android:layout_below="@+id/ll_layout_1"
+            android:layout_width="match_parent"
+            android:text="登陆"
+            android:gravity="center"
+            android:textSize="@dimen/sp_16"
+            android:paddingLeft="@dimen/dip50"
+            android:layout_margin="@dimen/dip100"
+            android:background="@drawable/btn_login_bg_selector"
+            android:textColor="@color/color_FFFFFF"
+            android:layout_height="@dimen/dip100"/>
+</RelativeLayout>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

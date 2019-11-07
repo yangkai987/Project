@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:orientation="vertical">
+    <com.membership_score.widgetlib.widget.TitleBar
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:title_show_backicon="false"
+            app:title_text="会员" />
+    <View  style="@style/line_h_1"/>
+    <RelativeLayout
+            android:id="@+id/rl_input_layout"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dip100">
+        <LinearLayout
+                android:layout_toLeftOf="@+id/tv_search_ms_name_and_phone"
+                android:background="@drawable/shape_bg_common_dialog_radius_4"
+                android:orientation="horizontal"
+                android:layout_marginLeft="@dimen/dip15"
+                android:layout_marginTop="@dimen/dip10"
+                android:layout_marginBottom="@dimen/dip10"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dip95">
+            <ImageView
+                    android:layout_gravity="center_vertical"
+                    android:background="@mipmap/ic_search"
+                    android:layout_width="@dimen/dip40"
+                    android:layout_height="@dimen/dip40" />
+            <com.membership_score.widgetlib.widget.ClearEditText
+                    android:id="@+id/et_input_search_name_and_phone"
+                    android:layout_gravity="center_vertical"
+                    android:background="@null"
+                    android:textSize="@dimen/dip25"
+                    android:maxLength="11"
+                    android:textColor="@color/colorMain"
+                    android:textColorHint="@color/color_CCCCCC"
+                    android:hint="输入姓名或手机号码查询"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+        </LinearLayout>
+        <TextView
+                android:id="@+id/tv_search_ms_name_and_phone"
+                android:layout_centerVertical="true"
+                android:layout_alignParentRight="true"
+                android:text="搜索"
+                android:textSize="@dimen/sp_14"
+                android:textColor="@color/colorMain"
+                android:padding="@dimen/dp_10"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+    </RelativeLayout>
+    <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dip1"
+            android:background="#DDD"/>
+
+    <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dip100">
+        <TextView
+                android:paddingLeft="@dimen/dp_10"
+                android:layout_weight="1.0"
+                android:text="会员姓名"
+                android:gravity="center"
+                android:textColor="@color/main_activity_tab_tv_selected"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+        <View  style="@style/line_v_1"/>
+        <TextView
+                android:id="@+id/tv_member_phone"
+                android:layout_weight="1.0"
+                android:maxEms="11"
+                android:maxLines="1"
+                android:text="会员手机号"
+                android:gravity="center"
+                android:paddingLeft="@dimen/dp_10"
+                android:inputType="textPhonetic"
+                android:textColor="@color/main_activity_tab_tv_selected"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+        <View  style="@style/line_v_1"/>
+        <TextView
+                android:id="@+id/tv_member_ship_total_num_text"
+                android:gravity="center"
+                android:layout_weight="1.0"
+                android:text="会员总积分"
+                android:paddingLeft="@dimen/dp_10"
+                android:textColor="@color/main_activity_tab_tv_selected"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+    </LinearLayout>
+    <View  style="@style/line_h_1"/>
+
+    <android.support.v7.widget.RecyclerView
+            android:id="@+id/lv_result_search"
+            android:visibility="gone"
+            android:background="@color/color_FFFFFF"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    <RelativeLayout
+            android:visibility="gone"
+            android:id="@+id/rl_isempty"
+            android:layout_below="@+id/lv_result_search"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+        <TextView
+                android:text="暂无数据"
+                android:gravity="center"
+                android:textSize="@dimen/dip40"
+                android:textColor="@color/color_D2D3DB"
+                android:layout_centerInParent="true"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+    </RelativeLayout>
+</LinearLayout>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
