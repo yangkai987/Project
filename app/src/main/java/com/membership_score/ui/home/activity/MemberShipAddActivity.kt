@@ -9,6 +9,7 @@ import com.membership_score.base.BaseActivity
 import com.membership_score.baselib.utils.DateUtil
 import com.membership_score.baselib.utils.ToastUtil
 import com.membership_score.constant.DBConstant
+import com.membership_score.database.bean.MemberShipOperationBean
 import com.membership_score.database.bean.MemberShipScoreNum
 import com.membership_score.database.bean.MemberShipScoreNumResult
 import com.membership_score.database.other.MySqlLiteHelper
@@ -24,6 +25,7 @@ class MemberShipAddActivity :BaseActivity<MemberShipManagePresenter>(), MemberSh
     var db: SQLiteDatabase? = null
     var mySqlLiteHelper: MySqlLiteHelper? = null
     var userId: String?=null
+    var money: String?=null
     /************
      微信：1 支付宝 2 现金 3 银行卡 4 其他 5
      ********************/
@@ -46,7 +48,7 @@ class MemberShipAddActivity :BaseActivity<MemberShipManagePresenter>(), MemberSh
     override fun initListener() {
         //添加一个积分
         tv_add_one_member_ship_sure.setOnClickListener {
-            var money = et_recharge_member_ship_pay_money.text.toString()
+            money = et_recharge_member_ship_pay_money.text.toString()
             if (TextUtils.isEmpty(money)){
                 ToastUtil.toast("金额不能为空")
                 return@setOnClickListener
@@ -56,7 +58,7 @@ class MemberShipAddActivity :BaseActivity<MemberShipManagePresenter>(), MemberSh
                 return@setOnClickListener
             }
             val str = "^[0-9]*\$"
-            if (!money.matches(str.toRegex())){
+            if (!money!!.matches(str.toRegex())){
                 ToastUtil.toast("请输入正确的金额")
                 return@setOnClickListener
             }
@@ -105,13 +107,25 @@ class MemberShipAddActivity :BaseActivity<MemberShipManagePresenter>(), MemberSh
     }
 
     override fun addOneMemberShipFaild(msg: String?) {
-        ToastUtil.showFaild("添加积分失败$msg")
+        ToastUtil.showFaild("添加积分记录失败$msg")
     }
 
     override fun addOneMemberShipSuccess() {
+        val memberShipOperation = MemberShipOperationBean(
+            userId,  DateUtil.getBeforeOrAfterDate(7, "yyyy-MM-dd hh:mm"),
+            payType,Integer.parseInt(money))
+        db?.let { it1 -> mPresenter.insertOneMemberShipOperation(it1, memberShipOperation) }
+    }
+
+    override fun insertOneMemberShipOperationSuccess() {
         ToastUtil.showSuccess("添加积分成功")
         EventBus.getDefault().postSticky(EventBusBean(1))
     }
+
+    override fun insertOneMemberShipOperationFaild(msg: String?) {
+        ToastUtil.showFaild("添加积分失败$msg")
+    }
+
 
     override fun selectOneMemberAllShipSuccess(ms_list: MutableList<MemberShipScoreNumResult>?) {
     }

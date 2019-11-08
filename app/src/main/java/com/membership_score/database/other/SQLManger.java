@@ -71,11 +71,7 @@ public class SQLManger {
             String ms_last_time = cursor.getString(cursor.getColumnIndex(DBConstant.MS_LAST_TIME));
 
             ArrayList<MemberShipScoreNumResult> ms_details = selectMemberShipToList(db, userId);
-            Log.i(TAG, "ms_details---->" + ms_details.size());
-            Integer ms_total_num = 0;
-            if (!ms_details.isEmpty()) {
-                ms_total_num = getMSTotalNum(ms_details);
-            }
+            Integer ms_total_num = getMSTotalNum(db,userId);
             Log.i(TAG, "ms_total_num---->" + ms_total_num);
             MemberShipInfoDBResult th_data = new MemberShipInfoDBResult(
                     userId, sex, level, name, phoneNum,
@@ -123,7 +119,7 @@ public class SQLManger {
             Log.i(TAG, "ms_details---->" + ms_details.size());
             Integer ms_total_num = 0;
             if (!ms_details.isEmpty()) {
-                ms_total_num = getMSTotalNum(ms_details);
+                ms_total_num = getMSTotalNum(db,userId);
             }
             Log.i(TAG, "ms_total_num---->" + ms_total_num);
             MemberShipInfoDBResult th_data = new MemberShipInfoDBResult(
@@ -137,13 +133,11 @@ public class SQLManger {
     }
 
 
-    public static Integer getMSTotalNum(ArrayList<MemberShipScoreNumResult> ms_details) {
+    public  Integer getMSTotalNum(SQLiteDatabase db,String ms_is) {
         Integer ms_total_num = 0;
-        if (ms_details.isEmpty()) {
-            return ms_total_num;
-        }
-        for (int i = 0; i < ms_details.size(); i++) {
-            ms_total_num = ms_total_num + ms_details.get(i).getMembership_score_get_num();
+        MemberShipOperationBean info= selectOneMemberShipOperation(db, ms_is);
+        if(info!=null){
+            return info.getMember_ship_total();
         }
         return ms_total_num;
     }
@@ -407,4 +401,70 @@ public class SQLManger {
             return resultBean;
         }
     }
+
+    /**
+     * @param info 添加的会员积分操作数据
+     *             插入数据
+     */
+    public long insertOneMemberShipOperation(SQLiteDatabase db, MemberShipOperationBean info) {
+        MemberShipOperationBean infoBean=selectOneMemberShipOperation(db,info.getMember_ship_id());
+        if(infoBean==null){
+            //说明不存在积分记录，需要去添加积分总分
+            // TODO Auto-generated method stub
+            ContentValues values = new ContentValues();
+            values.put(DBConstant.MEMBER_SHIP_ID, info.getMember_ship_id());
+            values.put(DBConstant.MEMBER_SHIP_TIME, info.getMember_ship_time());
+            values.put(DBConstant.MEMBER_SHIP_PAY_TYPE,info.getMember_ship_pay_type());
+            values.put(DBConstant.MEMBER_SHIP_TOTAL, info.getMember_ship_total());
+            return db.insert(DBConstant.MEMBERSHIP_TAB, null, values);
+        }
+        //说明存在积分记录，需要去修改积分总分
+        return upDataUserMemberShipOperation(db,info,infoBean.getMember_ship_total());
+    }
+
+
+    /**
+     * @param db
+     * @param memberShipId
+     * @return 集合对象
+     */
+    public MemberShipOperationBean selectOneMemberShipOperation(SQLiteDatabase db, String memberShipId) {
+        Cursor cursor = selectSQL(db, DBConstant.SELECT_ONE_MEMBER_SHIP_OPERATION, new String[]{memberShipId});
+        MemberShipOperationBean infoBean=null;
+        while (cursor.moveToNext()) {   //判断游标是否有下一个字段
+            //getColumnIndext作用是返回给定字符串的下标(指的是int类型)
+            int columnIndex = cursor.getColumnIndex(DBConstant.ID);
+            //通过下标找到指定value
+            String member_ship_id = cursor.getString(cursor.getColumnIndex(DBConstant.MEMBER_SHIP_ID));
+            String member_ship_time = cursor.getString(cursor.getColumnIndex(DBConstant.MEMBER_SHIP_TIME));
+            Integer member_ship_pay_type = cursor.getInt(cursor.getColumnIndex(DBConstant.MEMBER_SHIP_PAY_TYPE));
+            Integer member_ship_total = cursor.getInt(cursor.getColumnIndex(DBConstant.MEMBER_SHIP_TOTAL));
+            infoBean = new MemberShipOperationBean(
+                    member_ship_id, member_ship_time, member_ship_pay_type, member_ship_total);
+        }
+        cursor.close();
+        return infoBean;
+    }
+
+    /**
+     * @param upDataBean
+     * @param oldShip
+     * 修改已经存在的会员积分
+     */
+    public long upDataUserMemberShipOperation(SQLiteDatabase db, MemberShipOperationBean upDataBean,Integer oldShip) {
+        int resultCode = -1;
+        try {
+            ContentValues contentValues = new ContentValues();
+            contentValues.put(DBConstant.MEMBER_SHIP_TOTAL, upDataBean.getMember_ship_total()+oldShip);
+            contentValues.put(DBConstant.MEMBER_SHIP_TIME, upDataBean.getMember_ship_time());
+            contentValues.put(DBConstant.MEMBER_SHIP_PAY_TYPE, upDataBean.getMember_ship_pay_type());
+            resultCode = db.update(DBConstant.MEMBERSHIP_TAB, contentValues, DBConstant.UPDATA_MEMBER_SHIP_TOTAL, new String[]{upDataBean.getMember_ship_id()});
+            db.close();
+            return resultCode;
+        } catch (Exception ex) {
+            db.close();
+            return resultCode;
+        }
+    }
+
 }

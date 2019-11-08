@@ -78,4 +78,7 @@ class MemberShipRecordActivity :BaseActivity<MemberShipManagePresenter>(), Membe
     override fun addOneMemberShipFaild(msg: String?) {}
 
     override fun addOneMemberShipSuccess() {}
+    override fun insertOneMemberShipOperationSuccess() {}
+    override fun insertOneMemberShipOperationFaild(msg: String?) {}
+
 }

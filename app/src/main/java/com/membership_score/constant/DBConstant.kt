@@ -52,6 +52,14 @@ object DBConstant {
 
     const val LOGINS_TATUE="loginStatue"//登陆状态
 
+    /*********************会员总积分数据表***********************/
+    const val MEMBERSHIP_TAB="member_ship_tab"//会员积分表名
+    const val MEMBER_SHIP_ID="member_ship_id"//会员积分ID
+    const val MEMBER_SHIP_TIME="member_ship_time"//会员积分time
+    const val MEMBER_SHIP_PAY_TYPE="member_ship_pay_type"//会员积分支付方式
+    const val MEMBER_SHIP_TOTAL="member_ship_total"//会员总积分
+
+
     //注册用户表
     const val CREATE_ADMIN_REGISTER_TAB = "create table " +ADMIN_REGISTER_TAB + "(" +
             ID + " integer primary key autoincrement," +
@@ -87,6 +95,12 @@ object DBConstant {
             MEMBERSHIP_SCORE_GET_NUM + " integer," +
             MEMBERSHIP_SCORE_PAY_TIME + " varchar(50)," +
             MS_PAY_TYPE + " integer)"
+    const val CREATE_MEMBERSHIP_TAB = "create table " +MEMBERSHIP_TAB + "(" +
+            ID + " integer primary key autoincrement," +
+            MEMBER_SHIP_ID + " varchar(50)," +
+            MEMBER_SHIP_TIME + " varchar(50)," +
+            MEMBER_SHIP_PAY_TYPE + " integer," +
+            MEMBER_SHIP_TOTAL + " integer)"
 
     const val SELECT_ALL_MEMBER = "select * from $MS_INFO_TAB_NAME"
 
@@ -103,6 +117,12 @@ object DBConstant {
 
     //修改会员资料
     const val UPDATA_USER_DATA_WHERE = "$ADMIN_ID=?"
+
+    //修改会员积分总数
+    const val UPDATA_MEMBER_SHIP_TOTAL = "$MEMBER_SHIP_ID=?"
+
+    //查询对应ID操作的积分
+    const val SELECT_ONE_MEMBER_SHIP_OPERATION = "select * from $MEMBERSHIP_TAB where $MEMBER_SHIP_ID =?"
 }
 
 

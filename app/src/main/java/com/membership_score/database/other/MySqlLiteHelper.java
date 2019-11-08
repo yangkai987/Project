@@ -28,6 +28,7 @@ public class MySqlLiteHelper extends SQLiteOpenHelper {
         sqLiteDatabase.execSQL(DBConstant.CREATE_ADMIN_REGISTER_TAB);
         sqLiteDatabase.execSQL(DBConstant.CREATE_INFO_TAB);
         sqLiteDatabase.execSQL(DBConstant.CREATE_MS_DETAILS_TAB);
+        sqLiteDatabase.execSQL(DBConstant.CREATE_MEMBERSHIP_TAB);
     }
     /**
      *  更新数据库时调用
