@@ -13,7 +13,7 @@ object DBConstant {
 
     //数据库名称
     const val DB_NAME = "membership_score.db"
-    const val DB_VERSION = 1
+    const val DB_VERSION = 2
     //会员数据库名称
     const val MS_INFO_TAB_NAME = "membership_score_info_tab"
     //会员积分明细表名称

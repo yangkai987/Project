@@ -43,7 +43,6 @@
                 android:textColor="@color/colorMain"
                 android:textColorHint="@color/color_CCCCCC"
                 android:hint="请输入充值金额"
-                android:inputType="number"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" />
     </RelativeLayout>

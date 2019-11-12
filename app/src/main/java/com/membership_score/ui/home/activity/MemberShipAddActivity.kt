@@ -57,7 +57,7 @@ class MemberShipAddActivity :BaseActivity<MemberShipManagePresenter>(), MemberSh
                     ToastUtil.toast("请选择支付类型")
                 return@setOnClickListener
             }
-            val str = "^[0-9]*\$"
+            val str = "^[\\-|0-9][0-9]{1,}\$"
             if (!money!!.matches(str.toRegex())){
                 ToastUtil.toast("请输入正确的金额")
                 return@setOnClickListener

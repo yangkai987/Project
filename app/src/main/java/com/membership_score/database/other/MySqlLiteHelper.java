@@ -33,12 +33,14 @@ public class MySqlLiteHelper extends SQLiteOpenHelper {
     /**
      *  更新数据库时调用
      * @param sqLiteDatabase
-     * @param i
-     * @param i1
+     * @param oldVersion
+     * @param newVersion
      */
     @Override
-    public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
-        sqLiteDatabase.execSQL(DBConstant.UPDATA_SQL_VERSION);
-        onCreate(sqLiteDatabase);
+    public void onUpgrade(SQLiteDatabase sqLiteDatabase,int oldVersion, int newVersion) {
+        if(oldVersion>newVersion){
+            sqLiteDatabase.execSQL(DBConstant.UPDATA_SQL_VERSION);
+            onCreate(sqLiteDatabase);
+        }
     }
 }
